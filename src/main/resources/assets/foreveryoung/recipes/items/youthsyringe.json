@@ -1,24 +1,19 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "HRH",
+    "HRX",
     "GSB",
-    "XrX"
+    "FrF"
   ],
   "key": {
     "H": {
-      "type": "minecraft:item_nbt",
-      "item": "minecraft:potion",
-      "nbt": {
-        "Potion": "minecraft:healing"
-      }
+      "item": "minecraft:golden_carrot"
     },
     "X": {
-      "type": "minecraft:item_nbt",
-      "item": "minecraft:potion",
-      "nbt": {
-        "Potion": "minecraft:regeneration"
-      }
+      "item": "minecraft:golden_apple", "data": 0
+    },
+    "F": {
+      "item": "minecraft:fermented_spider_eye"
     },
     "r": {
       "item": "minecraft:redstone"
