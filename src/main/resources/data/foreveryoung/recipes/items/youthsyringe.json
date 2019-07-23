@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "HRX",
+    "GSB",
+    "FrF"
+  ],
+  "key": {
+    "H": {
+      "item": "minecraft:golden_carrot"
+    },
+    "X": {
+      "item": "minecraft:golden_apple"
+    },
+    "F": {
+      "item": "minecraft:fermented_spider_eye"
+    },
+    "r": {
+      "item": "minecraft:redstone"
+    },
+    "R": {
+      "item": "minecraft:red_dye"
+    },
+    "G": {
+      "item": "minecraft:green_dye"
+    },
+    "B": {
+      "item": "minecraft:blue_dye"
+    },
+    "S": {
+      "item": "foreveryoung:syringe_blood"
+    }
+  },
+  "result": {
+    "item": "foreveryoung:syringe_youth"
+  }
+}

@@ -7,17 +7,16 @@ import ben_mkiv.foreveryoung.network.messages.ItemUseEvent;
 import ben_mkiv.foreveryoung.network.messages.SyringeEvent;
 import net.minecraft.entity.AgeableEntity;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.boss.WitherEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemUseContext;
 import net.minecraft.util.*;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.world.TrackedEntity;
-import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.fml.network.NetworkDirection;
 
 public class Syringe extends Item {
     private static DamageSource damageSource = new DamageSource("foreveryoung.syringe");
@@ -25,23 +24,6 @@ public class Syringe extends Item {
     public Syringe() {
         super(new Properties().group(Foreveryoung.group));
     }
-
-    @Override
-    public ActionResult<ItemStack> onItemRightClick(World world, PlayerEntity player, Hand hand) {
-        ItemStack itemstack = player.getHeldItem(hand);
-
-        return new ActionResult<>(ActionResultType.SUCCESS, itemstack);
-        //return super.onItemRightClick(world, player, hand);
-
-    }
-
-    @Override
-    public ActionResultType onItemUse(ItemUseContext context){
-
-
-        //return ActionResultType.PASS;
-        return ActionResultType.FAIL;
-      }
 
     @OnlyIn(Dist.CLIENT)
     public static boolean onItemUse(PlayerEntity player, Entity target){
@@ -88,7 +70,9 @@ public class Syringe extends Item {
             return stackIn;
         }
 
-        //ForeverYoungNetwork.sendToTrackingPlayers(new SyringeEvent(target, stackIn), target);
+        for(PlayerEntity playerInRange : ForeverYoungNetwork.getPlayersInRange(target, 32)){
+            Foreveryoung.channel.sendTo(new SyringeEvent(target, stackIn), ((ServerPlayerEntity) playerInRange).connection.netManager, NetworkDirection.PLAY_TO_CLIENT);
+        }
 
         return new ItemStack(ModItems.SyringeBlood);
     }
@@ -107,9 +91,9 @@ public class Syringe extends Item {
             //player.sendStatusMessage(new TextComponentString("you should put a nametag on this mob if you dont want it to despawn"), false);
         }
 
-
-
-        //ForeverYoungNetwork.sendToTrackingPlayers(new SyringeEvent(target, stackIn), target);
+        for(PlayerEntity playerInRange : ForeverYoungNetwork.getPlayersInRange(target, 32)){
+            Foreveryoung.channel.sendTo(new SyringeEvent(target, stackIn), ((ServerPlayerEntity) playerInRange).connection.netManager, NetworkDirection.PLAY_TO_CLIENT);
+        }
 
         return new ItemStack(ModItems.Syringe);
     }

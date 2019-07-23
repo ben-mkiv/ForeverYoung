@@ -1,8 +1,6 @@
 package ben_mkiv.foreveryoung.network.messages;
 
-import ben_mkiv.foreveryoung.Foreveryoung;
 import ben_mkiv.foreveryoung.init.ModItems;
-import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
@@ -50,7 +48,7 @@ public class SyringeEvent {
     public static class Handler {
 
         public static void handle(SyringeEvent message, Supplier<NetworkEvent.Context> ctx){
-            if(ctx.get().getDirection() != NetworkDirection.PLAY_TO_SERVER) {
+            if(ctx.get().getDirection() != NetworkDirection.PLAY_TO_CLIENT) {
                 return;
             }
 
@@ -63,10 +61,10 @@ public class SyringeEvent {
                 target.performHurtAnimation();
 
                 if(message.syringeType.equals("inject")) {
-                    //target.getEntityWorld().spawnParticle(ParticleTypes.WITCH, target.posX + target.world.rand.nextFloat() * 0.5, target.posY + 0.5 + target.world.rand.nextFloat() * 0.5, target.posZ + target.world.rand.nextFloat() * 0.5, target.world.rand.nextGaussian() * 0.02D, target.world.rand.nextGaussian() * 0.02D, target.world.rand.nextGaussian() * 0.02D);
+                    target.getEntityWorld().addParticle(ParticleTypes.WITCH, target.posX + target.world.rand.nextFloat() * 0.5, target.posY + 0.5 + target.world.rand.nextFloat() * 0.5, target.posZ + target.world.rand.nextFloat() * 0.5, target.world.rand.nextGaussian() * 0.02D, target.world.rand.nextGaussian() * 0.02D, target.world.rand.nextGaussian() * 0.02D);
                 }
                 else {
-                    //target.getEntityWorld().spawnParticle(ParticleTypes.ANGRY_VILLAGER, target.posX + target.world.rand.nextFloat() * 0.5, target.posY + 0.5 + target.world.rand.nextFloat() * 0.5, target.posZ + target.world.rand.nextFloat() * 0.5, target.world.rand.nextGaussian() * 0.02D, target.world.rand.nextGaussian() * 0.02D, target.world.rand.nextGaussian() * 0.02D);
+                    target.getEntityWorld().addParticle(ParticleTypes.ANGRY_VILLAGER, target.posX + target.world.rand.nextFloat() * 0.5, target.posY + 0.5 + target.world.rand.nextFloat() * 0.5, target.posZ + target.world.rand.nextFloat() * 0.5, target.world.rand.nextGaussian() * 0.02D, target.world.rand.nextGaussian() * 0.02D, target.world.rand.nextGaussian() * 0.02D);
                 }
             }
 
