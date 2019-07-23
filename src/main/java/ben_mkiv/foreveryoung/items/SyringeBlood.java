@@ -15,12 +15,11 @@ import java.util.List;
 public class SyringeBlood extends Syringe {
     public SyringeBlood(){
         super();
-        //setUnlocalizedName("syringe_blood");
     }
 
     @OnlyIn(Dist.CLIENT)
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-        tooltip.add(new TranslationTextComponent("item.syringe_blood.tooltip"));
+        tooltip.add(new TranslationTextComponent("item.foreveryoung.syringe_blood.tooltip"));
     }
 }

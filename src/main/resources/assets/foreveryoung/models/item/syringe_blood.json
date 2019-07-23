@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "foreveryoung:items/syringe_blood"
+    "layer0": "foreveryoung:item/syringe_blood"
   }
 }

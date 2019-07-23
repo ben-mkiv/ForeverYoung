@@ -24,7 +24,6 @@ public class Syringe extends Item {
 
     public Syringe() {
         super(new Properties().group(Foreveryoung.group));
-        //setUnlocalizedName("syringe");
     }
 
     @Override
@@ -40,8 +39,8 @@ public class Syringe extends Item {
     public ActionResultType onItemUse(ItemUseContext context){
 
 
-        return ActionResultType.PASS;
-        //return ActionResultType.FAIL;
+        //return ActionResultType.PASS;
+        return ActionResultType.FAIL;
       }
 
     @OnlyIn(Dist.CLIENT)
