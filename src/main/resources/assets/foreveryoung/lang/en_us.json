@@ -1,0 +1,10 @@
+{
+  "itemGroup.ForeverYoung": "ForeverYoung",
+
+  "item.foreveryoung.syringe" : "Syringe",
+  "item.foreveryoung.syringe_youth" : "Syringe (Youth Potion)",
+  "item.foreveryoung.syringe_blood" : "Syringe",
+  "item.foreveryoung.syringe_blood.tooltip" : "obtained by using an empty syringe on a baby mob",
+
+  "death.attack.foreveryoung.syringe" : "%1$s got drained out of blood"
+}

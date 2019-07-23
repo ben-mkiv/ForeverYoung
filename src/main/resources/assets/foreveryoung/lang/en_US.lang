@@ -1,8 +1,0 @@
-itemGroup.ForeverYoung=ForeverYoung
-
-item.syringe.name=Syringe
-item.syringe_youth.name=Syringe (Youth Potion)
-item.syringe_blood.name=Syringe (Baby Blood)
-item.syringe_blood.tooltip=obtained by using an empty syringe on a baby mob
-
-death.attack.foreveryoung.syringe=%1$s got drained out of blood
